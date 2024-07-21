@@ -1,21 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <div class="item-header">
-        <h1>{{ item.nome }}</h1>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Detalhes do Item</h5>
-            <p class="card-text"><strong>Descrição:</strong> {{ item.descrição }}</p>
-            <p class="card-text"><strong>Preço:</strong> {{ item.preço }}</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h1 class="h3">{{ item.nome }}</h1>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-3">Detalhes do Item</h5>
+                    <p class="card-text"><strong>Descrição:</strong> {{ item.descrição }}</p>
+                    <p class="card-text"><strong>Preço:</strong> {{ item.preço }}</p>
+                </div>
+                <div class="card-footer bg-light text-center">
+                    <a href="{% url 'item_list' %}" class="btn btn-outline-primary">Voltar para a Lista</a>
+                    <a href="{% url 'item_update' item.pk %}" class="btn btn-outline-secondary">Editar</a>
+                    <a href="{% url 'item_delete' item.pk %}" class="btn btn-outline-danger">Excluir</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="btn-group">
-        <a href="{% url 'item_list' %}" class="btn btn-primary">Voltar para a Lista</a>
-        <a href="{% url 'item_update' item.pk %}" class="btn btn-secondary">Editar</a>
-        <a href="{% url 'item_delete' item.pk %}" class="btn btn-danger">Excluir</a>
     </div>
 </div>
 {% endblock %}
